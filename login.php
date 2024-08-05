@@ -1,3 +1,6 @@
+<?php 
+    include './config/api.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +9,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Se connecter</h1>
+    <h1>Se connectelllr</h1>
+
+    <a 
+        href="https://accounts.google.com/o/oauth2/v2/auth?scope=email&access_type=online&response_type=code&redirect_uri=<?= urlencode(REDIRECT_URI) ?>&client_id=<?= CLIENT_ID ?>">
+        Se connecter avec Google
+    </a>
+
 </body>
 </html>
