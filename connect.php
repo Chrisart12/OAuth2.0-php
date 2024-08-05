@@ -24,6 +24,24 @@ try {
         ]
     ]);
 
+    $token = json_decode($response->getBody());
+
+    $response = $client->request('POST', 'https://openidconnect.googleapis.com/v1/userinfo', [
+        'headers' => [ 'Authorization' => 'Bearer ' . $token->access_token ],
+    ]);
+
+    $user = json_decode($response->getBody());
+
+    if ($user->email_verified) {
+        session_start();
+
+        $_SESSION["email"]= $user->email;
+
+        header('Location: /home.php');
+        exit;
+    }
+
+
 } catch (\GuzzleHttp\Exception\ClientException $th) {
     //throw $th;
     dd($th->getMessage());
