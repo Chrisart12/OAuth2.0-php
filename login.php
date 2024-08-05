@@ -1,5 +1,14 @@
 <?php 
+    
+
+    require 'vendor/autoload.php';
+
+    // $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+    // $dotenv->load();
+
     include './config/api.php';
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +21,7 @@
     <h1>Se connectelllr</h1>
 
     <a 
-        href="https://accounts.google.com/o/oauth2/v2/auth?scope=email&access_type=online&response_type=code&redirect_uri=<?= urlencode(REDIRECT_URI) ?>&client_id=<?= CLIENT_ID ?>">
+        href="https://accounts.google.com/o/oauth2/v2/auth?scope=email&access_type=online&response_type=code&redirect_uri=<?= urlencode(config('api.redirect_uri')) ?>&client_id=<?= config('api.client_id') ?>">
         Se connecter avec Google
     </a>
 

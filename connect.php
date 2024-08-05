@@ -16,9 +16,9 @@ try {
     $response = $client->request('POST', 'https://oauth2.googleapis.com/token', [
         'form_params' => [
             'code' => $_GET['code'],
-            'client_id' => CLIENT_ID,
-            'client_secret' => CLIENT_SECRET,
-            'redirect_uri' => REDIRECT_URI,
+            'client_id' => config('api.client_id'),
+            'client_secret' => config('api.client_secret'),
+            'redirect_uri' => config('api.redirect_uri'),
             'grant_type' => 'authorization_code',
     
         ]
